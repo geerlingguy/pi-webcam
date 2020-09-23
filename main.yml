@@ -1,0 +1,49 @@
+---
+- hosts: pi
+  become: true
+
+  tasks:
+    - name: Clone uvc-gadget to the Pi.
+      git:
+        repo: https://github.com/climberhunt/uvc-gadget.git
+        dest: /home/pi/uvc-gadget
+        version: master
+      become: false
+
+    - name: Build uvc-gadget.
+      make:
+        chdir: /home/pi/uvc-gadget
+      become: false
+
+    - name: Copy piwebcam service into place.
+      copy:
+        src: piwebcam.service
+        dest: /etc/systemd/system/piwebcam.service
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: Ensure piwebcam service is enabled at boot.
+      systemd:
+        name: piwebcam
+        enabled: true
+
+    - name: Ensure OTG functionality is enabled in cmdline.txt
+      lineinfile:
+        path: /boot/cmdline.txt
+        backrefs: true
+        regexp: '^(console=.*)(?<!libcomposite)$'
+        line: '\1 modules-load=dwc2,libcomposite'
+
+    - name: Ensure OTG functionality is enabled in config.txt
+      lineinfile:
+        path: /boot/config.txt
+        insertafter: EOF
+        regexp: 'dtoverlay=dwc2'
+        line: 'dtoverlay=dwc2'
+
+    - name: Set up serial device for login at boot.
+      file:
+        src: /lib/systemd/system/getty@.service
+        dest: /etc/systemd/system/getty.target.wants/getty@ttyGS0.service
+        state: link
