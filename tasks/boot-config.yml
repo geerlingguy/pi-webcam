@@ -1,0 +1,17 @@
+---
+- name: Ensure OTG functionality is enabled in cmdline.txt
+  lineinfile:
+    path: /boot/cmdline.txt
+    backrefs: true
+    regexp: '^(console=.*)(?<!libcomposite)$'
+    line: '\1 modules-load=dwc2,libcomposite'
+  notify: reboot_pi
+
+- name: Make necessary changes in config.txt
+  lineinfile:
+    path: /boot/config.txt
+    insertafter: EOF
+    regexp: '{{ item.regexp }}'
+    line: '{{ item.line }}'
+  with_items: '{{ config_txt_changes }}'
+  notify: reboot_pi

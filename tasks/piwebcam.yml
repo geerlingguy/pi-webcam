@@ -1,0 +1,20 @@
+---
+- name: Set up serial device for login at boot.
+  file:
+    src: /lib/systemd/system/getty@.service
+    dest: /etc/systemd/system/getty.target.wants/getty@ttyGS0.service
+    state: link
+
+- name: Copy piwebcam service into place.
+  copy:
+    remote_src: true
+    src: /home/pi/uvc-gadget/piwebcam.service
+    dest: /etc/systemd/system/piwebcam.service
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Ensure piwebcam service is enabled at boot.
+  service:
+    name: piwebcam
+    enabled: "{{ piwebcam_boot_enabled }}"
