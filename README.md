@@ -8,6 +8,16 @@ Inspired by David Hunt's blog post showing how to use a [Raspberry Pi Zero with 
 
 This Ansible playbook can be run on a Raspberry Pi to set it up as a USB OTG webcam.
 
+What does that mean? Well, after running the playbook:
+
+  - You plug the Pi into your computer
+  - You wait until it boots
+  - Bingo! Webcam usable in any software (Zoom, Teams, Meet, OBS, QuickTime, etc.)
+
+It works on Mac, Windows, and all the flavors of Linux I've tested so far.
+
+## Caveats
+
 The playbook is meant to run on a brand new installation of Raspbian that has not had any configuration changes via `raspi-config` or any other tools, though it _should_ work correctly with an existing installation.
 
 There are a few things you should probably do manually at some point, including:
