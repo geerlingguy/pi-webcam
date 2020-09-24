@@ -1,5 +1,9 @@
 # Raspberry Pi Webcam
 
+[![CI](https://github.com/geerlingguy/pi-webcam/workflows/CI/badge.svg?branch=master)](https://github.com/geerlingguy/pi-webcam/actions?query=workflow%3ACI)
+
+<p align="center"><img src="https://raw.githubusercontent.com/geerlingguy/pi-webcam/master/files/pi-webcam-tripod.jpeg" width="285" height="405" alt="Raspberry Pi 4 with HQ Camera and Tamron Lens on Tripod" /></p>
+
 Inspired by David Hunt's blog post showing how to use a [Raspberry Pi Zero with a Pi Camera as a USB Webcam](http://www.davidhunt.ie/raspberry-pi-zero-with-pi-camera-as-usb-webcam/), as well as [justinschuldt's gist](https://gist.github.com/justinschuldt/36469e2a89d95ef158a8c4df091e9cb4), I wanted to make my Raspberry Pi 4 do the same thing, but automated and with all the scripts wrapped in version control, since the blog post was a little bit vague in some areas.
 
 This Ansible playbook can be run on a Raspberry Pi to set it up as a USB OTG webcam.
@@ -20,6 +24,7 @@ Note that the playbook modifies your boot config, and as such you _should not ru
   1. Plug in your boot volume, and plug your camera into the camera connector.
   1. Boot the Raspberry Pi.
   1. Make sure you can log into the Pi via SSH.
+  1. Clone or download this repository to your computer.
   1. Update the IP address in `inventory` to match the IP address of your Raspberry Pi.
   1. Edit the `config.yml` file to your liking (the defaults should be fine though).
   1. Run the Ansible playbook:
