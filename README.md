@@ -40,7 +40,7 @@ There are two ways you can run this automated setup. You can either run everythi
   1. Follow the setup wizard, and if you want to easily be able to log into the Pi later, connect to a WiFi network, and also run the `raspi-config` tool and enable SSH.
   1. The Raspberry Pi should ask to be restarted. Go ahead and restart now, and wait for it to boot back up.
   1. Open the Terminal application (in the launcher or in Menu > Accessories > Terminal).
-  1. Install Ansible: `sudo apt update && sudo apt install -y python3-dev python3-pip libyaml-dev libffi-dev && sudo pip3 install ansible` (**Warning**: this can take a while, especially on older Pis!).
+  1. Install Ansible: `sudo apt update && sudo apt install -y python3-dev python3-pip libyaml-dev libffi-dev && sudo pip3 install --no-binary pyyaml ansible` (**Warning**: this can take a while, especially on slower Pis!).
   1. Test the Ansible installation: `ansible --version` (should output the Ansible version).
   1. Clone this repository to your Pi: `git clone https://github.com/geerlingguy/pi-webcam.git`
   1. Go into the repository directory: `cd pi-webcam`
