@@ -29,6 +29,24 @@ Note that the playbook modifies your boot config, and as such you _should not ru
 
 ## Getting Started
 
+There are two ways you can run this automated setup. You can either run everything on the Raspberry Pi itself (e.g. if you plug in a keyboard, mouse, and monitor), or you can run it from another computer.
+
+### Using the Raspberry Pi
+
+  1. Flash the latest Raspberry Pi OS to a microSD card.
+  1. Once Raspbian is loaded on the card, insert the card in your Pi, and plug in your Pi to boot it up.
+  1. Follow the setup wizard, and if you want to easily be able to log into the Pi later, connect to a WiFi network.
+  1. The Raspberry Pi should ask to be restarted. Go ahead and restart now, and wait for it to boot back up.
+  1. Open the Terminal application (in the launcher or in Menu > Accessories > Terminal).
+  1. Install Ansible: `sudo apt update && sudo apt install -y python3-dev python3-pip libffi-dev && pip3 install ansible` (this takes a while on the Pi Zero, but is pretty fast on newer Pis).
+  1. Test the Ansible installation: `ansible --version` (should output the Ansible version).
+  1. Clone this repository to your Pi: `git clone https://github.com/geerlingguy/pi-webcam.git`
+  1. Go into the repository directory: `cd pi-webcam`
+  1. Use the local inventory file: `cp inventory-local.example inventory`
+  1. Run the Ansible playbook: `ansible-playbook main.yml`
+
+### Using another Computer
+
   1. Make sure you have Ansible installed on your computer.
   1. Flash the latest Raspberry Pi OS to your Raspberry Pi. Make sure you added an `ssh` file to the boot volume so SSH is enabled on first boot.
   1. Plug in your boot volume, and plug your camera into the camera connector.

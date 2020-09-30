@@ -9,6 +9,7 @@
   handlers:
     - name: reboot_pi
       reboot:
+      when: ansible_connection != 'local'
 
   tasks:
     - include_tasks: tasks/uvc-gadget.yml
