@@ -33,9 +33,11 @@ There are two ways you can run this automated setup. You can either run everythi
 
 ### Setup on the Raspberry Pi
 
+> Pro Tip: If you want to use a Pi Zero for the webcam, and don't want to wait half an hour for it to run all this automation, you can put the flashed microSD card into a newer Pi (like the Pi 4) and do all this work there, then when it's done pull the card and pop it into a Pi Zero.
+
   1. Flash the latest Raspberry Pi OS to a microSD card.
   1. Once Raspbian is loaded on the card, insert the card in your Pi, and plug in your Pi to boot it up.
-  1. Follow the setup wizard, and if you want to easily be able to log into the Pi later, connect to a WiFi network.
+  1. Follow the setup wizard, and if you want to easily be able to log into the Pi later, connect to a WiFi network, and also run the `raspi-config` tool and enable SSH.
   1. The Raspberry Pi should ask to be restarted. Go ahead and restart now, and wait for it to boot back up.
   1. Open the Terminal application (in the launcher or in Menu > Accessories > Terminal).
   1. Install Ansible: `sudo apt update && sudo apt install -y python3-dev python3-pip libffi-dev && sudo pip3 install ansible` (this takes a while on the Pi Zero, but is pretty fast on newer Pis).
