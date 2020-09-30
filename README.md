@@ -4,15 +4,15 @@
 
 <p align="center"><img src="https://raw.githubusercontent.com/geerlingguy/pi-webcam/master/files/pi-webcam-tripod.jpeg" width="285" height="405" alt="Raspberry Pi 4 with HQ Camera and Tamron Lens on Tripod" /></p>
 
-Inspired by David Hunt's blog post showing how to use a [Raspberry Pi Zero with a Pi Camera as a USB Webcam](http://www.davidhunt.ie/raspberry-pi-zero-with-pi-camera-as-usb-webcam/), as well as [justinschuldt's gist](https://gist.github.com/justinschuldt/36469e2a89d95ef158a8c4df091e9cb4), I wanted to make my Raspberry Pi 4 do the same thing, but automated and with all the scripts wrapped in version control, since the blog post was a little bit vague in some areas.
+Inspired by David Hunt's blog post showing how to use a [Raspberry Pi Zero with a Pi Camera as a USB Webcam](http://www.davidhunt.ie/raspberry-pi-zero-with-pi-camera-as-usb-webcam/), as well as [justinschuldt's gist](https://gist.github.com/justinschuldt/36469e2a89d95ef158a8c4df091e9cb4), I wanted to make my Raspberry Pi do the same thing, but automated and with all the scripts wrapped in version control, since the blog post was a little bit vague in some areas.
 
-This Ansible playbook can be run on a Raspberry Pi to set it up as a USB OTG webcam.
+This Ansible playbook can be run on _any_ Raspberry Pi to set it up as a USB OTG webcam.
 
 What does that mean? Well, after running the playbook:
 
   - You plug the Pi into your computer
   - You wait until it boots
-  - Bingo! Webcam usable in any software (Zoom, Teams, Meet, OBS, QuickTime, etc.)
+  - **Bingo!** Webcam usable in any software (Zoom, Teams, Meet, OBS, QuickTime, etc.)
 
 It works on Mac, Windows, and all the flavors of Linux I've tested so far.
 
@@ -20,12 +20,7 @@ It works on Mac, Windows, and all the flavors of Linux I've tested so far.
 
 The playbook is meant to run on a brand new installation of Raspbian that has not had any configuration changes via `raspi-config` or any other tools, though it _should_ work correctly with an existing installation.
 
-There are a few things you should probably do manually at some point, including:
-
-  - Changing the default password for the `pi` user account.
-  - Setting a WiFi country and enabling WiFi if you don't want to keep your Pi plugged into ethernet for remote access.
-
-Note that the playbook modifies your boot config, and as such you _should not run this playbook on a microSD or other boot volume you're not ready to reformat and re-flash!_
+Note: **This modifies your boot config**, and as such you _should not run this playbook on a microSD or other boot volume you're not ready to reformat and re-flash!_
 
 ## Getting Started
 
@@ -41,7 +36,6 @@ There are two ways you can run this automated setup. You can either run everythi
   1. The Raspberry Pi should ask to be restarted. Go ahead and restart now, and wait for it to boot back up.
   1. Open the Terminal application (in the launcher or in Menu > Accessories > Terminal).
   1. Install Ansible: `sudo apt update && sudo apt install -y python3-dev python3-pip libyaml-dev libffi-dev && sudo pip3 install --no-binary pyyaml ansible` (**Warning**: this can take a while, especially on slower Pis!).
-  1. Test the Ansible installation: `ansible --version` (should output the Ansible version).
   1. Clone this repository to your Pi: `git clone https://github.com/geerlingguy/pi-webcam.git`
   1. Go into the repository directory: `cd pi-webcam`
   1. Use the local inventory file: `cp inventory-local.example inventory`
