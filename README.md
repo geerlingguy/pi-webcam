@@ -40,7 +40,6 @@ There are two ways you can run this automated setup. You can either run everythi
   1. Go into the repository directory: `cd pi-webcam`
   1. Use the local inventory file: `cp inventory-local.example inventory`
   1. Run the Ansible playbook: `ansible-playbook main.yml`
-  1. Reboot the Pi after the playbook completes its run.
   1. You can shutdown the Pi at this point.
 
 ### Setup from another Computer
