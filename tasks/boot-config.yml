@@ -8,10 +8,13 @@
   notify: reboot_pi
 
 - name: Make necessary changes in config.txt
-  lineinfile:
+  ini_file:
     path: /boot/config.txt
-    insertafter: EOF
-    regexp: '{{ item.regexp }}'
-    line: '{{ item.line }}'
+    no_extra_spaces: true
+    section: all
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+    mode: 0755
+    backup: true
   with_items: '{{ config_txt_changes }}'
   notify: reboot_pi

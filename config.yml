@@ -8,14 +8,11 @@ piwebcam_boot_enabled: true
 # Changes to be made to the config.txt file.
 config_txt_changes:
   # Enable USB OTG mode.
-  - regexp: '^dtoverlay=.+'
-    line: 'dtoverlay=dwc2'
+  - option: dtoverlay
+    value: dwc2
   # Enable the camera.
-  - regexp: '^start_x=.+'
-    line: 'start_x=1'
+  - option: start_x
+    value: '1'
   # Ensure GPU has enough memory for camera.
-  - regexp: '^gpu_mem=.+'
-    line: 'gpu_mem=128'
-  # Enable HDMI 'safe mode'
-  - regexp: '^#?hdmi_safe=.+'
-    line: 'hdmi_safe=1'
+  - option: gpu_mem
+    value: '128'
