@@ -6,11 +6,6 @@
   vars_files:
     - config.yml
 
-  handlers:
-    - name: reboot_pi
-      reboot:
-      when: ansible_connection != 'local'
-
   tasks:
     - include_tasks: tasks/uvc-gadget.yml
     - include_tasks: tasks/boot-config.yml

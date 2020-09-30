@@ -5,7 +5,6 @@
     backrefs: true
     regexp: '^(console=.*)(?<!libcomposite)$'
     line: '\1 modules-load=dwc2,libcomposite'
-  notify: reboot_pi
 
 - name: Make necessary changes in config.txt
   ini_file:
@@ -17,4 +16,3 @@
     mode: 0755
     backup: false
   with_items: '{{ config_txt_changes }}'
-  notify: reboot_pi

@@ -54,7 +54,7 @@ There are two ways you can run this automated setup. You can either run everythi
   1. Make sure you have [Ansible installed](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) on your computer.
   1. Flash the latest Raspberry Pi OS a microSD card. Make sure you added an `ssh` file to the boot volume so SSH is enabled on first boot.
   1. Once Raspbian is loaded on the card and you have the `ssh` file in the boot volume, insert the card in your Pi, and plug in your Pi to boot it up.
-  1. Make sure you can log into the Pi via SSH. Ideally, add your SSH key to the Pi using `ssh-copy-id`. If you don't, make sure to add the `-k` parameter to the `ansible-playbook` command later.
+  1. Make sure you can log into the Pi via SSH. Ideally, add your SSH key to the Pi using `ssh-copy-id`. If you don't, make sure to add the `-k` parameter to the `ansible-playbook` command later so you can enter the SSH password.
   1. Clone or download this repository to your computer.
   1. Use the ssh inventory file: `cp inventory-ssh.example inventory`
   1. Update the IP address in `inventory` to match the IP address or hostname of your Raspberry Pi.
@@ -65,7 +65,6 @@ There are two ways you can run this automated setup. You can either run everythi
      ansible-playbook main.yml
      ```
 
-  1. At the end of the playbook (assuming this is the first time you've run it), the Raspberry Pi should reboot itself.
   1. You can shutdown the Pi at this point (log in via SSH then `sudo shutdown now`).
 
 ## Plugging in the Camera
@@ -99,6 +98,7 @@ If, for some strange reason, it did end up getting corrupted, I could just re-ru
 Well... most of the known issues have to do with the other projects _this_ project relies on:
 
   - If you're not using a Mac, you may need to adjust the brightness setting in the `uvc-gadget.c` file and re-compile it manually. I'm looking into a better way to allow this to be configured.
+  - The upstream repository providing the `uvc-gadget` application currently defaults to 720p resolution, which is great for most use cases. You can stream at 1080p, though the Pi Zero and older Pis may drop frames at that resolution. Follow [this issue](https://github.com/geerlingguy/pi-webcam/issues/4) for progress making resolution more easily configurable.
   - The Pi 4 model B currently locks up when you try to use USB OTG and enable the webcam for some reason. (I've only successfully tested this on a Pi Zero and Pi Zero W).
   - This stuff is a little bit of a complicated ball of string, so future Raspberry Pi OS and kernel updates could cause issues. I would not run this on a Raspberry Pi that is controlling a breathing machine or something like that.
 

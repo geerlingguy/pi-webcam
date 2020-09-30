@@ -1,6 +1,17 @@
 ---
-# The repository from which uvc-gadget will be cloned.
-uvc_gadget_repo: https://github.com/climberhunt/uvc-gadget.git
+##
+# Common settings.
+##
+
+# TODO: See https://github.com/geerlingguy/pi-webcam/issues/4
+
+##
+# Less common settings.
+##
+
+# The repository from which uvc-gadget will be cloned. Note that if a different
+# fork of uvc-gadget is used, some of the configuration may need to be disabled.
+uvc_gadget_repo: https://github.com/geerlingguy/uvc-gadget.git
 
 # Whether to enable piwebcam at boot or not.
 piwebcam_boot_enabled: true
