@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/geerlingguy/pi-webcam/workflows/CI/badge.svg?branch=master)](https://github.com/geerlingguy/pi-webcam/actions?query=workflow%3ACI)
 
-<p align="center"><img src="https://raw.githubusercontent.com/geerlingguy/pi-webcam/master/files/pi-webcam-tripod.jpeg" width="285" height="405" alt="Raspberry Pi 4 with HQ Camera and Tamron Lens on Tripod" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/geerlingguy/pi-webcam/master/files/pi-webcam-tripod.jpg" width="400" height="400" alt="Raspberry Pi Zero W with HQ Camera and wide-angle lens on Tripod" /></p>
 
 Inspired by David Hunt's blog post showing how to use a [Raspberry Pi Zero with a Pi Camera as a USB Webcam](http://www.davidhunt.ie/raspberry-pi-zero-with-pi-camera-as-usb-webcam/), as well as [justinschuldt's gist](https://gist.github.com/justinschuldt/36469e2a89d95ef158a8c4df091e9cb4), I wanted to make my Raspberry Pi do the same thing, but automated and with all the scripts wrapped in version control, since the blog post was a little bit vague in some areas.
 
@@ -22,7 +22,30 @@ The playbook is meant to run on a brand new installation of Raspbian that has no
 
 Note: **This modifies your boot config**, and as such you _should not run this playbook on a microSD or other boot volume you're not ready to reformat and re-flash!_
 
-## Getting Started
+## Setting up the Hardware
+
+It doesn't matter if you set up the software or hardware first, you just need to do both to have a functional webcam.
+
+There are a number of different components you can purchase instead of these, but here's the list of what I'm using in my 'official' version that is well-tested and that I use frequently on my Mac and Windows laptops:
+
+  - [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) (can also use Zero)
+  - [Raspberry Pi High Quality Camera](https://www.raspberrypi.org/products/raspberry-pi-high-quality-camera/)
+  - [Raspberry Pi Zero camera cable](https://thepihut.com/products/raspberry-pi-zero-camera-adapter)
+  - [6mm wide-angle lens for HQ Camera](https://thepihut.com/products/raspberry-pi-high-quality-camera-lens)
+  - [Pi Hut Pi Zero HQ Camera mounting plate](https://thepihut.com/products/mounting-plate-for-high-quality-camera)
+
+Once you have everything, it's a matter of putting it all together. I will be posting a video to my YouTube channel with the full details.
+
+### Mounting the webcam
+
+The HQ Camera includes a female tripod socket, so any tripod or mounting arm will do. I've used a variety of mounts depending on the purpose, for example:
+
+  - [SmallRig Ballhead Clamp Mount](https://amzn.to/33828gy): To mount the cam above my monitor on my monitor arm
+  - [Joby GorillaPod Magnetic Mini](https://amzn.to/3nNw8pX): Useful in a huge variety of situations
+  - [Joby GorillaPod 5K stand and ballhead](https://amzn.to/2IZa4Kd): Rock solid and a little taller, but it's definitely overkill
+  - [25 inch flexible gooseneck webcam desk mount](https://amzn.to/3nOrxDO): Can mount the camera any which way using this, especially great for top-down shots
+
+## Setting up the Software
 
 There are two ways you can run this automated setup. You can either run everything on the Raspberry Pi itself (e.g. if you plug in a keyboard, mouse, and monitor), or you can run it from another computer.
 
