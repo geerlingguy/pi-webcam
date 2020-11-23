@@ -14,7 +14,13 @@ What does that mean? Well, after running the playbook:
   - You wait until it boots
   - **Bingo!** Webcam usable in any software (Zoom, Teams, Meet, OBS, QuickTime, etc.)
 
-It works on Mac, Windows, and all the flavors of Linux I've tested so far.
+It works on Mac, Windows, and all the flavors of Linux I've tested so far. It even works on another Raspberry Pi (I've tested it on a Pi 4 and Pi 400).
+
+## Video overview of this project
+
+I published a video in November 2020 detailing how to set up your Pi Webcam using this project. Click the thumbnail below to view it:
+
+<p align="center"><a href="https://www.youtube.com/watch?v=8fcbP7lEdzY"><img src="https://raw.githubusercontent.com/geerlingguy/pi-webcam/master/files/pi-video-youtube.jpg" width="497" height="280" alt="Raspberry Pi Zero is a REAL USB webcam" /></a></p>
 
 ## Caveats
 
@@ -34,7 +40,9 @@ There are a number of different components you can purchase instead of these, bu
   - [6mm wide-angle lens for HQ Camera](https://thepihut.com/products/raspberry-pi-high-quality-camera-lens)
   - [Pi Hut Pi Zero HQ Camera mounting plate](https://thepihut.com/products/mounting-plate-for-high-quality-camera)
 
-Once you have everything, it's a matter of putting it all together. I will be posting a video to my YouTube channel with the full details.
+Once you have everything, it's a matter of putting it all together.
+
+Check out my video on YouTube for a detailed assembly and setup guide: [Raspberry Pi Zero is a PRO HQ webcam for less than $100!](https://www.youtube.com/watch?v=8fcbP7lEdzY).
 
 ### Mounting the webcam
 
