@@ -42,7 +42,7 @@ There are a number of different components you can purchase instead of these, bu
 
 Once you have everything, it's a matter of putting it all together.
 
-Check out my video on YouTube for a detailed assembly and setup guide: [Raspberry Pi Zero is a PRO HQ webcam for less than $100!](https://www.youtube.com/watch?v=8fcbP7lEdzY).
+Check out my video on YouTube for a detailed assembly and setup guide: [Raspberry Pi Zero is a PRO HQ webcam for less than $100!](https://www.youtube.com/watch?v=8fcbP7lEdzY)
 
 ### Mounting the webcam
 
@@ -104,10 +104,12 @@ All you need to do is grab a USB cable and plug the Pi into any USB port on your
 | Pi Model | Which USB Port for OTG/Webcam use? |
 | --- | --- |
 | Pi Zero / Pi Zero W | 'USB' port (next to 'PWR IN') |
-| Pi A/B/2/3 | Micro USB 'Power' port |
+| Pi A/A+ | Micro USB 'Power' port |
 | Pi 4 | USB-C 'Power' port |
 
-Once it's plugged in, you need to wait 30 seconds or so before the Pi will be booted and fully ready, then you can open any video recording/conferencing software, go to the camera selection, and BOOM! Select the 'PI4 USB Device'.
+Once it's plugged in, you need to wait 30 seconds or so before the Pi will be booted and fully ready, then you can open any video recording/conferencing software, go to the camera selection, and BOOM! Select the 'Pi Webcam'.
+
+> _What about the other Pi models?_ Unfortunately, other Pi models do not have full support for OTG, so they cannot be used as a webcam.
 
 ### Powering down the Pi
 
