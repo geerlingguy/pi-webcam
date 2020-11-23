@@ -123,7 +123,7 @@ Well... most of the known issues have to do with the other projects _this_ proje
 
   - If you're not using a Mac, you may need to adjust the brightness setting in the `uvc-gadget.c` file and re-compile it manually. I'm looking into a better way to allow this to be configured.
   - The upstream repository providing the `uvc-gadget` application currently defaults to 720p resolution, which is great for most use cases. You can stream at 1080p, though the Pi Zero and older Pis may drop frames at that resolution. Follow [this issue](https://github.com/geerlingguy/pi-webcam/issues/4) for progress making resolution more easily configurable.
-  - The Pi 4 model B currently locks up when you try to use USB OTG and enable the webcam for some reason. (I've only successfully tested this on a Pi Zero and Pi Zero W).
+  - The Pi 4 model B currently locks up when you try to use USB OTG and enable the webcam for some reason. You can run the [2020-02-07 Raspbian release](http://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-07/) to work around this bug for now. Follow [this issue](https://github.com/geerlingguy/pi-webcam/issues/5) for progress resolving this bug.
   - This stuff is a little bit of a complicated ball of string, so future Raspberry Pi OS and kernel updates could cause issues. I would not run this on a Raspberry Pi that is controlling a breathing machine or something like that.
 
 Yadda, yadda, standard "if something breaks don't blame me" disclaimer. The worst thing I've done to my Pi in testing this so far is accidentally breaking off the locking connector for the camera cable. Oops.
