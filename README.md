@@ -6,7 +6,7 @@
 
 Inspired by David Hunt's blog post showing how to use a [Raspberry Pi Zero with a Pi Camera as a USB Webcam](http://www.davidhunt.ie/raspberry-pi-zero-with-pi-camera-as-usb-webcam/), as well as [justinschuldt's gist](https://gist.github.com/justinschuldt/36469e2a89d95ef158a8c4df091e9cb4), I wanted to make my Raspberry Pi do the same thing, but automated and with all the scripts wrapped in version control, since the blog post was a little bit vague in some areas.
 
-This Ansible playbook can be run on _any_ Raspberry Pi to set it up as a USB OTG webcam.
+This Ansible playbook can be run on _most_ Raspberry Pis to set it up as a USB webcam.
 
 What does that mean? Well, after running the playbook:
 
@@ -101,15 +101,15 @@ At this point, it _should_ (assuming everything worked) be set up as a USB webca
 
 All you need to do is grab a USB cable and plug the Pi into any USB port on your computer. But which port do you plug into on the Pi? Well, I have a handy little table here:
 
-| Pi Model | Which USB Port for OTG/Webcam use? |
+| Pi Model | Which USB Port for device mode Webcam use? |
 | --- | --- |
 | Pi Zero / Pi Zero W | 'USB' port (next to 'PWR IN') |
-| Pi A/A+ | Micro USB 'Power' port |
+| Pi A/A+ | 'USB' port (you need a non standard Type-A to Type-A USB cable) |
 | Pi 4 | USB-C 'Power' port |
 
 Once it's plugged in, you need to wait 30 seconds or so before the Pi will be booted and fully ready, then you can open any video recording/conferencing software, go to the camera selection, and BOOM! Select the 'Pi Webcam'.
 
-> _What about the other Pi models?_ Unfortunately, other Pi models do not have full support for OTG, so they cannot be used as a webcam.
+> _What about the other Pi models?_ Unfortunately, other Pi models do not have full support for Device mode, so they cannot be used as a webcam.
 
 ### Powering down the Pi
 
@@ -125,7 +125,7 @@ Well... most of the known issues have to do with the other projects _this_ proje
 
   - If you're not using a Mac, you may need to adjust the brightness setting in the `uvc-gadget.c` file and re-compile it manually. I'm looking into a better way to allow this to be configured.
   - The upstream repository providing the `uvc-gadget` application currently defaults to 720p resolution, which is great for most use cases. You can stream at 1080p, though the Pi Zero and older Pis may drop frames at that resolution. Follow [this issue](https://github.com/geerlingguy/pi-webcam/issues/4) for progress making resolution more easily configurable.
-  - The Pi 4 model B currently locks up when you try to use USB OTG and enable the webcam for some reason. You can run the [2020-02-07 Raspbian release](http://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-07/) to work around this bug for now. Follow [this issue](https://github.com/geerlingguy/pi-webcam/issues/5) for progress resolving this bug.
+  - The Pi 4 model B currently locks up when you try to use USB Device mode and enable the webcam for some reason. You can run the [2020-02-07 Raspbian release](http://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-07/) to work around this bug for now. Follow [this issue](https://github.com/geerlingguy/pi-webcam/issues/5) for progress resolving this bug.
   - This stuff is a little bit of a complicated ball of string, so future Raspberry Pi OS and kernel updates could cause issues. I would not run this on a Raspberry Pi that is controlling a breathing machine or something like that.
 
 Yadda, yadda, standard "if something breaks don't blame me" disclaimer. The worst thing I've done to my Pi in testing this so far is accidentally breaking off the locking connector for the camera cable. Oops.
