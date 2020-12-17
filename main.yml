@@ -6,6 +6,10 @@
   vars_files:
     - config.yml
 
+  pre_tasks:
+    - name: Ensure git is installed.
+      package: name=git state=present
+
   tasks:
     - include_tasks: tasks/uvc-gadget.yml
     - include_tasks: tasks/boot-config.yml
