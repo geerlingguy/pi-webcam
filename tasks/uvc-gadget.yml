@@ -3,7 +3,7 @@
   git:
     repo: "{{ uvc_gadget_repo }}"
     dest: /home/pi/uvc-gadget
-    version: master
+    version: "{{ uvc_gadget_repo_version }}"
   become: false
 
 - name: Build uvc-gadget.
