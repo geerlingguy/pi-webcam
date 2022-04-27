@@ -8,11 +8,39 @@
 - name: Copy piwebcam service into place.
   copy:
     remote_src: true
-    src: /home/pi/uvc-gadget/piwebcam.service
+    src: /home/{{ username }}/uvc-gadget/piwebcam.service
     dest: /etc/systemd/system/piwebcam.service
     owner: root
     group: root
     mode: 0644
+
+- name: Set correct path for {{ username }} username on system service file
+  replace:
+    path: /etc/systemd/system/piwebcam.service
+    regexp: '^(.*)/home/pi(.*)$'
+    replace: '\1/home/{{ username }}\2'
+
+- name: Set correct username on systemd service
+  lineinfile:
+    path: /etc/systemd/system/piwebcam.service
+    regexp: '^User(.*)$'
+    line: 'User={{ username }}'
+
+- name: Set correct group on systemd service
+  lineinfile:
+    path: /etc/systemd/system/piwebcam.service
+    regexp: '^Group(.*)$'
+    line: 'Group={{ username }}'
+
+- name: systemd daemon reload
+  ansible.builtin.systemd:
+    daemon_reload: yes
+
+- name: Set correct path for {{ username }} username on piwebcam script
+  replace:
+    path: /home/{{ username }}/uvc-gadget/piwebcam
+    regexp: '^(.*)/home/pi(.*)$'
+    replace: '\1/home/{{ username }}\2'
 
 - name: Ensure piwebcam service is enabled at boot.
   service:

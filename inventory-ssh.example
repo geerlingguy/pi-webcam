@@ -1,2 +1,2 @@
 [pi]
-10.0.100.94 ansible_user=pi
+10.0.100.94 ansible_user=pi # Replace with the username created on your pi

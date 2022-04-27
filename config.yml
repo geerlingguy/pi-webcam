@@ -17,6 +17,10 @@ uvc_gadget_repo_version: master
 # Whether to enable piwebcam at boot or not.
 piwebcam_boot_enabled: true
 
+# PI username. Default: User running the playbook
+username: "{{ lookup('env', 'USER') }}"
+
+
 # Changes to be made to the config.txt file.
 config_txt_changes:
   # Enable USB OTG mode.

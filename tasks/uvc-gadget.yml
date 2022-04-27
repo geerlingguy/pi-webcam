@@ -2,11 +2,11 @@
 - name: Clone uvc-gadget to the Pi.
   git:
     repo: "{{ uvc_gadget_repo }}"
-    dest: /home/pi/uvc-gadget
+    dest: /home/{{ username }}/uvc-gadget
     version: "{{ uvc_gadget_repo_version }}"
   become: false
 
 - name: Build uvc-gadget.
   make:
-    chdir: /home/pi/uvc-gadget
+    chdir: /home/{{ username }}/uvc-gadget
   become: false
